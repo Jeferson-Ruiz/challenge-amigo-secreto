@@ -20,7 +20,7 @@ function limpiarEntrada(texto){
     document.getElementById(texto).value = "";
 }
 
-//Funcion para recorrer el Array
+//Recorrer el Array
 function recorrerLista(){
     let listaHtml = document.getElementById("listaAmigos");
     listaHtml.innerHTML = "";
@@ -30,5 +30,16 @@ function recorrerLista(){
         const li = document.createElement("li");
         li.textContent = listaAmigos[i];
         listaHtml.appendChild(li)
+    }
+}
+
+//Amigo aleatorio
+function sortearAmigo(){
+    if (listaAmigos.length > 0){
+        let amigoSecreto = Math.floor(Math.random() * listaAmigos.length);
+        document.getElementById("resultado").innerText = `El amigo secreto es: \n${listaAmigos[amigoSecreto]}`;
+    }
+    else{
+        alert("Ingresa primero los participantes del juego")
     }
 }
